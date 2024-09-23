@@ -62,11 +62,63 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        nav ul {
+            display: flex;
+        }
+        .hamburger-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px; /* Largura do botão */
+            height: 25px; /* Altura total */
+            background: none; /* Remove o fundo */
+            border: none; /* Remove a borda */
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            top: 10px;
+            right: 30rem;
+        }
+        .hamburger-button span {
+            display: block;
+            width: 100%;
+            height: 4px; /* Altura das linhas */
+            background-color: #ffffff; /* Cor das linhas */
+            border-radius: 2px; /* Bordas arredondadas nas linhas */
+        }
+        .nome img {
+            position: relative;
+            width: 92%;
+            top: 5px;
+            right: 27rem;
+        }
+        .logo img {
+            width: 15%;
+        }
+        .semi-bold {
+            font-weight: 600; /* Semi-bold */
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h2>VEÍCULOS</h2>
+        <nav>
+            <ul>
+                <button class="hamburger-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>                
+                <figure class="nome">
+                    <img src="{{ asset('alfa/Logo alfa6.png')}}" alt="Nome da alfa">
+                </figure>
+                <figure class="logo"> 
+                    <img src="{{ asset('alfa/Logo alfa3.png')}}" alt="Logo de veículos">
+                </figure>
+                <h2>VEÍCULOS</h2>
+            </ul>
+        </nav>
     </header>
     <aside>
         <section class="toggle-section">

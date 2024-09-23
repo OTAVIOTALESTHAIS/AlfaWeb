@@ -29,11 +29,18 @@
         </nav>
     </header>
     <main>
-        <aside class="lado">
-            <ul>
-                <li><a href="{{ url('relatorios')}}">Relatórios</a></li>
-            </ul>
-        </aside>
+        <section class="toggle-section">
+            <h2>Gerenciar</h2>
+            <div class="options" style="display: none;">
+                <p>Veículos</p>
+                <p>Relatórios</p>
+                <p>Motoristas</p>
+            </div>
+        </section>
+            <aside class="lado">
+                <ul>
+                    <li><a href="{{ url('relatorios')}}">Relatórios</a></li>
+                </ul>
     </main>
     <footer>
         <button class="back-button" onclick="window.history.back()">
@@ -59,11 +66,22 @@
     }
     aside {
         color:#FFFF;
+        position: fixed; /* Fixa o aside na tela */
+        top: 60px;          /* Alinha logo abaixo do cabeçalho*/
+        left: 0;         /* Alinha à esquerda */
+        width: 250px;    /* Defina a largura que deseja para o aside */
+        height: 100vh;   /* Ocupa 100% da altura da tela (viewport height) */
+        background-color: #1b2237;
+        position: relative; /* Mantém o aside em seu lugar padrão */
+        padding: 20px; /* Adiciona algum espaçamento interno */
+        width: 250px;    /* Largura do aside */
     }
-    aside.lado {
-    position: relative; /* Mantém o aside em seu lugar padrão */
-    padding: 20px; /* Adiciona algum espaçamento interno */
-}
+    .toggle-section {
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    }
+    .options {
+        margin-top: 10px; /* Espaço acima das opções */
+    }
 
     header {
         background-color: #222B45;
@@ -73,6 +91,7 @@
         position: fixed; /*quando abaixar a página fica em cima de todo jeito*/
         width: 100vw; /*o cabeçalho ocupar toda a largura*/
         height: 60px; /*define a altura do cabeçalho*/
+        z-index: 10; /* Garante que o header fique acima do aside */
     }
     nav ul {
         display: flex; /*alinhar na horizontal*/
@@ -81,7 +100,7 @@
         width: 92%;
         position: relative;
         top: 5px;
-        right: 40rem;
+        right: 26rem;
     }
     .logo img {
         width: 15%;
@@ -128,7 +147,7 @@
     padding: 0;
     position: relative;
     top: 10px;
-    right: 43rem;
+    right: 30rem;
 
 }
 
@@ -140,3 +159,12 @@
     border-radius: 2px; /* Bordas arredondadas nas linhas */
 }
 </style>
+<script>
+    document.querySelectorAll('.toggle-section').forEach(section => {
+    section.addEventListener('click', () => {
+        const options = section.querySelector('.options');
+        options.style.display = options.style.display === 'none' ? 'block' : 'none';
+    });
+});
+
+</script>
